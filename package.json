@@ -1,0 +1,28 @@
+{
+  "name": "kugo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "base.js",
+  "dependencies": {
+    "css-loader": "^0.27.3",
+    "html-loader": "^0.4.5",
+    "keycode": "^2.1.8",
+    "file-loader": "^0.10.1",
+    "muse-ui": "^2.0.0-rc.5",
+    "style-loader": "^0.14.1",
+    "url-loader": "^0.5.8",
+    "vue": "^2.2.4",
+    "vue-awesome-swiper": "^2.3.8",
+    "vue-loader": "^11.1.4",
+    "webpack": "^2.2.1",
+    "vue-router": "^2.3.0",
+    "webpack-dev-server": "^2.4.2",
+    "vue-template-compiler": "^2.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
