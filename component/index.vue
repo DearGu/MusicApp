@@ -1,12 +1,11 @@
 <template>
 	<div>
 		<kheader></kheader>
-		<swiper></swiper>
+		<router-view></router-view>
 	</div>
 </template>
 <script>
 	var kheader = require("./kheader.vue");
-	var kswiper = require("./kswiper.vue");
 	module.exports = {
 		data:function(){
 			return {
@@ -14,8 +13,7 @@
 			}
 		},
 		components:{
-			kheader:kheader,
-			kswiper:kswiper
+			kheader:kheader
 		}
 	}
 </script>

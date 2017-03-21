@@ -1,10 +1,10 @@
 <template>
-	<div>
+	<div style="position:fixed;width:100%;z-index: 2;">
 	<mu-appbar title="Title" style="position:relative;">
 	 	<a href="" class="logo"></a>
 	 	<mu-icon value="search" :size="32" style="position:absolute;right:3%;top:18%;" @click="goSearch()"/>
 	</mu-appbar>
-	<mu-tabs :value="activeTab" @change="handleTabChange" style="background-color:white;">
+	<mu-tabs :value="activeTab" @change="handleTabChange" style="background-color:white;box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;">
 	    <mu-tab value="tab1" title="新歌" style="color:#333;font-size:18px;"/>
 	    <mu-tab value="tab2" title="排行" style="color:#333;font-size:18px;"/>
 	    <mu-tab value="tab3" title="歌单" style="color:#333;font-size:18px;"/>
