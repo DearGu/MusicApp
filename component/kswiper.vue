@@ -36,7 +36,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   a{
     display:block;
     height:10em;

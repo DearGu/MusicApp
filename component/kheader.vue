@@ -4,7 +4,7 @@
 	 	<a href="" class="logo"></a>
 	 	<mu-icon value="search" :size="32" style="position:absolute;right:3%;top:18%;" @click="goSearch()"/>
 	</mu-appbar>
-	<mu-tabs :value="activeTab" @change="handleTabChange" style="background-color:white;box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;">
+	<mu-tabs :value="activeTab" @change="handleTabChange" style="background-color:white;box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;" v-if="showfun">
 	    <mu-tab value="tab1" title="新歌" style="color:#333;font-size:18px;"/>
 	    <mu-tab value="tab2" title="排行" style="color:#333;font-size:18px;"/>
 	    <mu-tab value="tab3" title="歌单" style="color:#333;font-size:18px;"/>
@@ -19,12 +19,31 @@
 				activeTab: 'tab1'
 			}
 		},
+		computed:{
+			showfun:function(){
+				return this.$store.state.isshow;
+			}
+		},
 		methods:{
 			goSearch:function(){
 				window.location.href = "#/seach"
 			},
 			handleTabChange (val) {
-		      this.activeTab = val
+		      this.activeTab = val;
+		      switch(val) {
+		      	case "tab1":
+		      		window.location.href = "#/index/newSong";
+		      		break;
+		      	case "tab2":
+		      		window.location.href = "#/index/rank";
+		      		break;
+		      	case "tab3":
+		      		window.location.href = "#/index/songList";
+		      		break;
+		      	case "tab4":
+		      		window.location.href = "#/index/singer";
+		      		break;
+		      }
 		    }
 		}
 	}

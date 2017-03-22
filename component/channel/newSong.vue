@@ -16,6 +16,9 @@
 		components:{
 			kswiper:kswiper,
 			klist:klist
+		},
+		mounted:function(){
+			this.$store.commit("setIsshow",true);
 		}
 	}
 </script>

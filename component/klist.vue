@@ -17,10 +17,11 @@ export default {
   },
   methods:{
     getSongList:function(){
-      this.$http.get("http://localhost/vue/test/songlist.php",{
+      this.$http.jsonp("http://localhost/vue/test/songlist.php",{
         params:{
           page:1,
-          rankid:6666
+          rankid:6666,
+          callback:"JSON_CALLBACK"
         }
       }).then(function(res){
         this.songlists = res.data.songs.list
