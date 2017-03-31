@@ -71,9 +71,10 @@
 	}
 	.content{
 		color:#333;
-		font-size:18px;
-		height:100%;
-		line-height:7rem;
+		font-size:17px;
+		/*height:100%;*/
+		/*line-height:7rem;*/
+		padding:11% 0;
 		margin-left:8%;
 	}
 	.rightlogo{

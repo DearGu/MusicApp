@@ -9,6 +9,7 @@
     "html-loader": "^0.4.5",
     "keycode": "^2.1.8",
     "muse-ui": "^2.0.0-rc.5",
+    "querystring": "^0.2.0",
     "style-loader": "^0.14.1",
     "url-loader": "^0.5.8",
     "vue": "^2.2.4",

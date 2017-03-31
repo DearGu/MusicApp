@@ -26,25 +26,42 @@
 		},
 		methods:{
 			goSearch:function(){
-				window.location.href = "#/seach"
+				window.location.href = "#/index/ksearch"
 			},
 			handleTabChange (val) {
 		      this.activeTab = val;
 		      switch(val) {
 		      	case "tab1":
-		      		window.location.href = "#/index/newSong";
+		      		window.location.href = "#/index/newSong/1";
 		      		break;
 		      	case "tab2":
-		      		window.location.href = "#/index/rank";
+		      		window.location.href = "#/index/rank/2";
 		      		break;
 		      	case "tab3":
-		      		window.location.href = "#/index/songList";
+		      		window.location.href = "#/index/songList/3";
 		      		break;
 		      	case "tab4":
-		      		window.location.href = "#/index/singer";
+		      		window.location.href = "#/index/singer/4";
 		      		break;
 		      }
 		    }
+		},
+		mounted:function(){
+			var channelid = this.$route.params.id;
+			switch(channelid) {
+				case '1':
+					this.activeTab = "tab1";
+					break;
+				case '2':
+					this.activeTab = "tab2";
+					break;
+				case '3':
+					this.activeTab = "tab3";
+					break;
+				case '4':
+					this.activeTab = "tab4";
+					break;
+			}
 		}
 	}
 </script>

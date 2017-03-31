@@ -2,10 +2,10 @@
 	<div class="wrap" :style="{'height':height+'px','overflow':'auto'}">
 		<div :class="{'ranktitle':true,'ranktitleblue':isblue}">
 			<div class="leftlogo" @click="goback()"></div>
-			<p>{{rankname}}</p>
+			<p>{{specialname}}</p>
 		</div>
 		<div style="height:280px;overflow: hidden;">
-		<img :src="bannerurl" :alt="rankname" style="width:100%">
+			<img :src="bannerurl" :alt="specialname" style="width:100%">
 		</div>
 		<div class="list demo-infinite-container">
 		    <mu-list>
@@ -24,7 +24,7 @@
 	module.exports = {
 		data:function(){
 			return {
-				rankname:"",
+				specialname:"",
 				bannerurl:"",
 				songlists:[],
 				page:1,
@@ -44,19 +44,19 @@
 		methods:{
 			//获取对应排行榜详细信息
 			getListData:function(id){
-				this.$http.jsonp("http://localhost/vue/test/songlist.php",{
+				this.$http.jsonp("http://localhost/vue/test/songsheetlist.php",{
 					params:{
 						page:this.page++,
-          				rankid:id,
+          				specialid:id,
           				callback:"JSON_CALLBACK"
 					}
 				}).then(function(data){
 					console.log(data.data);
-					this.rankname = data.data.info.rankname;
-					this.bannerurl = data.data.info.banner7url.replace('{size}', 400);
-					this.songlists = this.songlists.concat(data.data.songs.list);
+					this.specialname = data.data.info.list.specialname;
+					this.bannerurl = data.data.info.list.imgurl.replace('{size}', 400);
+					this.songlists = this.songlists.concat(data.data.list.list.info);
 					this.istip = false;
-					this.$store.commit("setMusicList",data.data.songs.list);
+					this.$store.commit("setMusicList",data.data.list.list.info);
 				})
 			},
 			//返回上一页
@@ -123,84 +123,12 @@
 		mounted:function(){
 			//隐藏功能栏
 			this.$store.commit("setIsshow",false);
-			this.$store.commit("setEheght",window.screen.height);
 			this.$store.commit("setShowplayer",false);
 			//根据参数的不同获取不同的排行榜详细信息	
 			var rankid = this.$route.params.id;
-			switch(rankid) {
-				case "11":
-					this.getRankDatas(6666);
-					this.changeblue();
-					break;
-				case "12":
-					this.getRankDatas(8888);
-					this.changeblue();
-					break;
-				case "13":
-					this.getRankDatas(23784);
-					this.changeblue();
-					break;
-				case "14":
-					this.getRankDatas(24971);
-					this.changeblue();
-					break;
-				case "15":
-					this.getRankDatas(27);
-					this.changeblue();
-					break;
-				case "16":
-					this.getRankDatas(28);
-					this.changeblue();
-					break;
-				case "17":
-					this.getRankDatas(24047);
-					this.changeblue();
-					break;
-				case "18":
-					this.getRankDatas(22050);
-					this.changeblue();
-					break;
-				case "19":
-					this.getRankDatas(21101);
-					this.changeblue();
-					break;
-				case "20":
-					this.getRankDatas(28653);
-					this.changeblue();
-					break;
-				case "21":
-					this.getRankDatas(29606);
-					this.changeblue();
-					break;
-				case "22":
-					this.getRankDatas(29534);
-					this.changeblue();
-					break;
-				case "23":
-					this.getRankDatas(28061);
-					this.changeblue();
-					break;
-				case "24":
-					this.getRankDatas(4681);
-					this.changeblue();
-					break;
-				case "25":
-					this.getRankDatas(70);
-					this.changeblue();
-					break;
-				case "26":
-					this.getRankDatas(24306);
-					this.changeblue();
-					break;
-				case "27":
-					this.getRankDatas(88);
-					this.changeblue();
-					break;
-				case "28":
-					this.getRankDatas(22096);
-					this.changeblue();
-					break;
-			}
+			this.getRankDatas(rankid);
+			this.changeblue();
+			this.$store.commit("setEheght",window.screen.height);
 		}
 	}
 </script>
