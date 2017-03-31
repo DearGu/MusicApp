@@ -38,7 +38,6 @@
 						callback:"JSON_CALLBACK"
 					}
 				}).then(function(data){
-					console.log(data.body.plist.list.info);
 					this.songlists = this.songlists.concat(data.body.plist.list.info);
 					this.istip = false;
 				})

@@ -26,16 +26,18 @@
 		<div class="searchresult" v-if="showresult">
 			<div class="total">共有{{total}}条结果</div>
 			<mu-list>
-		      <mu-list-item :title="result.filename|limitBy" v-for="result in results" :key="result.id" style="height: 58px;">
+		      <mu-list-item :title="result.filename|limitBy" v-for="(result,index) in results" :key="result.id" style="height: 58px;" @click="getSongData(result.hash,index)">
 		        <mu-icon value="file_download" slot="right"/>
 		      </mu-list-item>
 		    </mu-list>
 		    <div class="loadtip" v-if="istip">正在加载...</div>
 		</div>
 		<div class="topbutton" v-if="istop" @click="gotop()"></div>
+		<kplayer></kplayer>
 	</div>
 </template>
 <script>
+	var kplayer = require("../component/kplayer.vue");
 	module.exports = {
 		data:function(){
 			return {
@@ -51,6 +53,9 @@
 				istop:false,
 				istip:true,
 			}
+		},
+		components:{
+			kplayer:kplayer
 		},
 		filters:{
 			limitBy:function(input) {
@@ -73,7 +78,6 @@
 						callback:"JSONP_CALLBACK"
 					}
 				}).then(function(data){
-					console.log(data.body.data.info);
 					this.lists = data.body.data.info;
 					this.istip = false;
 				})
@@ -86,13 +90,13 @@
 						search:this.search
 					}
 				}).then(function(data){
-					console.log(data);
 					this.total = data.body.data.total;
 					this.results = this.results.concat(data.body.data.info);
 					this.showhot = false;
 					this.showresult = true;
 					this.istip = false;
 					this.loadMore();
+					this.$store.commit("setMusicList",this.results);
 				})
 			},
 			gotop:function(){
@@ -110,7 +114,27 @@
 			taphot:function(name){
 				this.search = name;
 				this.getresult();
-			}
+			},
+			getSongData:function(hash,index){
+		      this.$store.commit("setClickIndex",index);
+		      this.$http.jsonp("http://localhost/vue/test/songData.php",{
+		        params:{
+		          callback:"JSON_CALLBACK",
+		          hash:hash
+		        }
+		      }).then(function(data){
+		        var url = data.body.url;
+		        var imgurl = data.body.imgUrl.replace("{size}", 400);
+		        var mname = data.body.songName;
+		        var mauthor = data.body.singerName;
+		        this.$store.commit("setShowplayer",true);
+		        this.$store.commit("setMusicSrc",url);
+		        this.$store.commit("setMusicImg",imgurl);
+		        this.$store.commit("setMusicName",mname);
+		        this.$store.commit("setMusicAuthor",mauthor);
+		        this.$store.commit("setIsplay",false);
+		      })
+		    }
 		},
 		mounted:function(){
 			this.theight = window.screen.height;

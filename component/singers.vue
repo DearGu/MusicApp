@@ -46,7 +46,6 @@
           				callback:"JSON_CALLBACK"
 					}
 				}).then(function(data){
-					console.log(data.data);
 					this.singerid = data.data.info.list.specialname;
 					this.bannerurl = data.data.info.list.imgurl.replace('{size}', 400);
 					this.songlists = this.songlists.concat(data.data.list.list.info);

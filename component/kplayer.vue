@@ -59,9 +59,7 @@
 					this.$store.state.clickindex = 0;
 				}
 				var index = this.$store.state.clickindex;
-				console.log(index);
 				var hash = this.$store.state.musiclist[index].hash;
-				console.log(this.$store.state.musiclist[index].hash);
 				this.$http.jsonp("http://localhost/vue/test/songData.php",{
 			        params:{
 			          callback:"JSON_CALLBACK",

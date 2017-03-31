@@ -51,12 +51,11 @@
           				callback:"JSON_CALLBACK"
 					}
 				}).then(function(data){
-					console.log(data.data);
 					this.specialname = data.data.info.list.specialname;
 					this.bannerurl = data.data.info.list.imgurl.replace('{size}', 400);
 					this.songlists = this.songlists.concat(data.data.list.list.info);
 					this.istip = false;
-					this.$store.commit("setMusicList",data.data.list.list.info);
+					this.$store.commit("setMusicList",this.songlists);
 				})
 			},
 			//返回上一页

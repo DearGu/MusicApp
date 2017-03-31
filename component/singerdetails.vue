@@ -6,7 +6,7 @@
 		</div>
 		<ul>
 			<li v-for="list in lists">
-				<a :href="'#/index/singers/'+list.singerid">
+				<a href="#">
 					<div class="logo"><img :src="list.imgurl|replacesize" :alt="list.singername"></div>
 					<div class="content">
 						{{list.singername}}
