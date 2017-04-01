@@ -111,6 +111,9 @@ var router = new VueRouter({
 			path:"ksearch",
 			component:ksearch
 		}]
+	},{
+		path:"*",
+		redirect:"/index/newSong/1"
 	}]
 });
 
