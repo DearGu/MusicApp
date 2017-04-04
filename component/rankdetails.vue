@@ -44,7 +44,7 @@
 		methods:{
 			//获取对应排行榜详细信息
 			getListData:function(id){
-				this.$http.jsonp("http://localhost/vue/test/songlist.php",{
+				this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songlist.php",{
 					params:{
 						page:this.page++,
           				rankid:id,
@@ -100,7 +100,7 @@
 			},
 			getSongData:function(hash,index){
 		      this.$store.commit("setClickIndex",index);
-		      this.$http.jsonp("http://localhost/vue/test/songData.php",{
+		      this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songData.php",{
 		        params:{
 		          callback:"JSON_CALLBACK",
 		          hash:hash

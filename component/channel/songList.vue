@@ -32,7 +32,7 @@
 		},
 		methods:{
 			getSongLists:function(){
-				this.$http.jsonp("http://localhost/vue/test/getsongsheet.php",{
+				this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/getsongsheet.php",{
 					params:{
 						page:this.page++,
 						callback:"JSON_CALLBACK"

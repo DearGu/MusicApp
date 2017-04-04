@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     getSongList:function(){
-      this.$http.jsonp("http://localhost/vue/test/songlist.php",{
+      this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songlist.php",{
         params:{
           page:1,
           rankid:6666,
@@ -35,7 +35,7 @@ export default {
     },
     getSongData:function(hash,index){
       this.$store.commit("setClickIndex",index);
-      this.$http.jsonp("http://localhost/vue/test/songData.php",{
+      this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songData.php",{
         params:{
           callback:"JSON_CALLBACK",
           hash:hash

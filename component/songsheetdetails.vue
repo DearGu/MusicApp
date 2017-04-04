@@ -44,7 +44,7 @@
 		methods:{
 			//获取对应排行榜详细信息
 			getListData:function(id){
-				this.$http.jsonp("http://localhost/vue/test/songsheetlist.php",{
+				this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songsheetlist.php",{
 					params:{
 						page:this.page++,
           				specialid:id,
@@ -100,7 +100,7 @@
 			},
 			getSongData:function(hash,index){
 		      this.$store.commit("setClickIndex",index);
-		      this.$http.jsonp("http://localhost/vue/test/songData.php",{
+		      this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songData.php",{
 		        params:{
 		          callback:"JSON_CALLBACK",
 		          hash:hash
@@ -155,7 +155,7 @@
 	.ranktitle p{
 		display:inline-block;
 		margin:0;
-		width:80%;
+		width:82%;
 		height:4.5rem;
 		line-height:4.5rem;
 		color:white;
