@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     getSongList:function(){
-      this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songlist.php",{
+      this.$http.jsonp("https://1.amazingd.applinzi.com/kugou/songlist.php",{
         params:{
           page:1,
           rankid:6666,
