@@ -1,6 +1,6 @@
 <template>
 	<div style="position:fixed;width:100%;z-index: 2;">
-	<mu-appbar title="Title" style="position:relative;">
+	<mu-appbar title="Title" style="position:relative;" color="#03a9f4">
 	 	<a href="" class="logo"></a>
 	 	<mu-icon value="search" :size="32" style="position:absolute;right:3%;top:18%;" @click="goSearch()"/>
 	</mu-appbar>

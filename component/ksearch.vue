@@ -73,7 +73,7 @@
 				window.location.reload();
 			},
 			getHotData:function(){
-				this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/currenthot.php",{
+				this.$http.jsonp("https://1.amazingd.applinzi.com/kugou/currenthot.php",{
 					params:{
 						callback:"JSONP_CALLBACK"
 					}
@@ -83,7 +83,7 @@
 				})
 			},
 			getresult:function(){
-				this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/searchresult.php",{
+				this.$http.jsonp("https://1.amazingd.applinzi.com/kugou/searchresult.php",{
 					params:{
 						callback:"JSONP_CALLBACK",
 						page:this.page++,
@@ -117,7 +117,7 @@
 			},
 			getSongData:function(hash,index){
 		      this.$store.commit("setClickIndex",index);
-		      this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songData.php",{
+		      this.$http.jsonp("https://1.amazingd.applinzi.com/kugou/songData.php",{
 		        params:{
 		          callback:"JSON_CALLBACK",
 		          hash:hash

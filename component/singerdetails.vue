@@ -33,7 +33,7 @@
 		},
 		methods:{
 			getSingerLists:function(id){
-				this.$http.jsonp("http://localhost/vue/test/singerdetails.php",{
+				this.$http.jsonp("https://1.amazingd.applinzi.com/kugou/singerdetails.php",{
 					params:{
 						singerlistid:id,
 						page:this.page++,

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import MuseUI from 'muse-ui';
 import 'muse-ui/dist/muse-ui.css';
+import 'muse-ui/dist/theme-light.css'
 import VueRouter from "vue-router";
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueResource from 'vue-resource';

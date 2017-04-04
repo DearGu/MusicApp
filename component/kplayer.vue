@@ -60,7 +60,7 @@
 				}
 				var index = this.$store.state.clickindex;
 				var hash = this.$store.state.musiclist[index].hash;
-				this.$http.jsonp("http://1.amazingd.applinzi.com/kugou/songData.php",{
+				this.$http.jsonp("https://1.amazingd.applinzi.com/kugou/songData.php",{
 			        params:{
 			          callback:"JSON_CALLBACK",
 			          hash:hash
